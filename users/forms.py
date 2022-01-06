@@ -47,3 +47,19 @@ class CustomUserCreationForm(UserCreationForm):
         )  
         return user 
 
+
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    class Meta:
+        model = User
+        fields = ['username','email'] 
+
+class UpdateUserProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['user_bio', 'photo']
+
+class profileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = [ 'photo', 'user_bio']
