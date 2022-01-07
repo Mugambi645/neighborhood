@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("homepage.urls", namespace="homepage")),
     path("", include("users.urls", namespace="users")),
+    path("", include("blog.urls", namespace="blog")),
     path("accounts/", include("django.contrib.auth.urls")),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
