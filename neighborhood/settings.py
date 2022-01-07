@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'homepage',
     "bootstrap3",
     'crispy_forms',
+    'star_ratings',
     
 ]
 

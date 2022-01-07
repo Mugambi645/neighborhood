@@ -7,7 +7,10 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.decorators import login_required 
 # Create your views here.
 def index(request):
-    return render(request, "home/index.html", {})
+    context = {
+        'posts':Post.objects.all()
+    }
+    return render(request, "home/index.html", context)
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
@@ -48,3 +51,8 @@ def post(request, pk):
 
     return self.get(self, request, pk, context)
 
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'hoods/hood.html'
+    context_object_name = 'post'
+    

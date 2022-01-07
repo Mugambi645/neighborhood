@@ -3,6 +3,7 @@
 <div class="navbar">
     {% include "home/navbar.html" %}
 </div>
+
     <div id="main"></div>
     <!--NAVIGATION AREA ENDS-->
     <header>
@@ -12,6 +13,56 @@
       font-family: 'Pacifico', cursive;
        color: white; font-size: 30px;">A platform where you get to learn on what is happening in your community.</h5>
     </header>
+
+
+<!--top neighbourhood-->
+{% for post in posts %}
+<div style="margin: 3rem auto; width: 40rem">
+ <div class="card">
+   <h5 class="card-title">
+  <br><br>
+     <p style="margin: 0.5rem;" class="mr-2" href=""><i class="fas fa-house-user"></i>My neighbourhood: {{ post.name }}</p>
+   </h5><hr>
+   <a href="">
+   <img
+     src="{{ post.image.url }}"
+     class="card-img-top"
+     alt="Phone"
+   /> </a><p class="mb-4">
+     {{ post.description }}
+ </p>
+ {{ post.description }}
+   <div class="card-body">
+     
+     <h6 class="card-subtitle mb-2 text-muted">
+     <p class="card-text">
+   
+     <div class="row align-items-center">
+       <div class="col">
+         
+           <p style=" font-size: 16px;"><i style="margin-right: 0.5rem;" class="fas fa-city"></i>{{post.location}} </p>
+       
+       </div>
+       <div class="col">
+        <a href="{% url 'homepage:post-detail' post.id %}">View Hood
+       </a>
+       </div>
+       <div class="col">
+         <small style="opacity: 0.8; " class="white-important d-flex full-width flex-row-reverse">
+           {{ post.date_posted | date:"H:i l, d.m.y" }}
+       </small>
+       </div>
+     </div>
+    </p></h6></div></div></div></a></a></a></a></a></a></a>
+
+ </div>
+</div>
+{% endfor %}
+
+
+
+
+
     <div class="grid">
       <div class="card">
         <div class="card__content">

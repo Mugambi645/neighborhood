@@ -23,7 +23,7 @@ urlpatterns = [
     path("", include("homepage.urls", namespace="homepage")),
     path("", include("users.urls", namespace="users")),
     path("accounts/", include("django.contrib.auth.urls")),
-    
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
 ##development media and static files settings
 if settings.DEBUG:
