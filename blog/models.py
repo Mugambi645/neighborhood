@@ -15,4 +15,13 @@ class BlogPost(models.Model):
     
     def get_absolute_url(self):
         return reverse('blogs')
-    
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    blog = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)   
+    dateTime=models.DateTimeField(default=now)
+ 
+    def __str__(self):
+        return self.user.username +  " Comment: " + self.content
