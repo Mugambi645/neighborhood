@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from blog.models import BlogPost,Comment
+from blog.forms import BlogPostForm
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -33,6 +35,7 @@ def post(request, pk):
     Args:
     Pk - Primary Key,an unique way to identify an object uniquely in relational database systems
     """
+
     post = Post.objects.get(pk=pk)
     user = request.user
     form = CommentForm()
@@ -48,8 +51,10 @@ def post(request, pk):
         "comments": comments,
         "form": form,
     }
-
-    return self.get(self, request, pk, context)
+    blog_context = {
+        'blog_posts':BlogPost.objects.all()
+    }
+    return self.get(self, request, pk, context, blog_context)
 
 class PostDetailView(DetailView):
     model = Post

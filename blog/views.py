@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import BlogPost,Comment
 from .forms import BlogPostForm
 # Create your views here.
@@ -16,7 +16,19 @@ def add_blogs(request):
             blogpost.save()
             obj = form.instance
             alert = True
-            return render(request, "add_blogs.html",{'obj':obj, 'alert':alert})
+            return redirect('homepage:post')  
     else:
         form=BlogPostForm()
     return render(request, "add_blogs.html", {'form':form})
+
+
+def blogs_comments(request, slug):
+    post = BlogPost.objects.filter(slug=slug).first()
+    comments = Comment.objects.filter(blog=post)
+    if request.method=="POST":
+        user = request.user
+        content = request.POST.get('content','')
+        blog_id =request.POST.get('blog_id','')
+        comment = Comment(user = user, content = content, blog=post)
+        comment.save()
+    return render(request, "blog_comments.html", {'post':post, 'comments':comments}) 
