@@ -48,10 +48,11 @@
          
       </div>
       <div class="col">
-          {% include "blog.html" %}
+         column
       </div>
       <div class="col">
-        <a  href="{% url 'blog:add_blogs' %}">Add Blogs</a>
+        <a style="margin-left: 0rem;" href="{% url 'blog:add_blogs' %}" class="btn btn-primary" role="button">Add blogs</a>
+        <a style="margin-left: 6rem;" href="{% url 'blog:blogs' %}" class="btn btn-primary" role="button">View blogs</a>
         <button style="float: right;" type="button" class="btn btn-primary">Add bussiness</button>
       </div>
       <div class="col">Column</div>

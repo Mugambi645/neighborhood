@@ -6,4 +6,5 @@ urlpatterns = [
     path("",views.index, name="index"),
     path('post/new/', PostCreateView.as_view(), name='new_post'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    #path('post/<int:pk>/', views.detailView,name="post-detail"),
 ]

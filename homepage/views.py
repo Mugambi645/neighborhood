@@ -51,10 +51,8 @@ def post(request, pk):
         "comments": comments,
         "form": form,
     }
-    blog_context = {
-        'blog_posts':BlogPost.objects.all()
-    }
-    return self.get(self, request, pk, context, blog_context)
+   
+    return self.get(self, request, pk, context)
 
 class PostDetailView(DetailView):
     model = Post
