@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import BlogPost,Comment
+from .forms import BlogPostForm
 # Create your views here.
 def blogs(request):
     posts = BlogPost.objects.all()
