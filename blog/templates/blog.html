@@ -14,7 +14,7 @@
                             <div class="card-body">
                               <h5 class="card-title">{{post.title}} <br><small>by {{post.author}}</small></h5>
                               <p class="card-text">{{post.content| truncatechars:210}}</p>
-                              <a href="" class="btn btn-primary">Read More {% if user.is_superuser %}<a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger mx-4">Delete Blog</a>{% endif %}</a>
+                              <a href="{% url 'blog:blog_comments' post.slug %}" class="btn btn-primary">Read More {% if user.is_superuser %}<a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger mx-4">Delete Blog</a>{% endif %}</a>
                             </div>
                         
                     </div>
