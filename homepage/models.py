@@ -5,7 +5,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User 
 from django.urls import reverse
-#from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 class Location(models.Model):
     name = models.CharField(max_length=100,null=True)
 
@@ -19,8 +19,8 @@ class Post(models.Model):
     name = models.CharField(max_length=400)
     location = models.ForeignKey('Location',null=True, on_delete=models.CASCADE)
       #image field
-    #image = CloudinaryField('image')
-    image = models.ImageField(upload_to='uploads/')
+    image = CloudinaryField('image')
+    #image = models.ImageField(upload_to='uploads/')
     description = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
