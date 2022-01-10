@@ -107,3 +107,19 @@ def createBusiness(request, pk):
         'hood': hood
     }
     return render(request, 'hoods/create_bussiness.html', context)
+
+@login_required(login_url='login')
+def search_profile(request):
+    if 'search_user' in request.GET and request.GET['search_user']:
+        name = request.GET.get("search_user")
+        results = Profile.search_profile(name)
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'results.html', params)
+    else:
+        message = "You haven't searched for any  category"
+    return render(request, 'results.html', {'message': message})
