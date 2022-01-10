@@ -101,9 +101,9 @@ def createBusiness(request, pk):
             phone = request.POST.get('phone'),
 
         )
-        return redirect('hood', pk=hood.id)     
+        return redirect('homepage:post-detail', pk=hood.id)     
     context = {
         'form':form,
         'hood': hood
     }
-    return render(request, 'hoods/create_business.html', context)
+    return render(request, 'hoods/create_bussiness.html', context)
