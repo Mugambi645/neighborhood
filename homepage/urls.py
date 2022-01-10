@@ -8,5 +8,6 @@ urlpatterns = [
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('join_hood/<int:pk>/', views.joinHood, name='join_hood'),
     path('delete_post/<int:pk>/', views.deletePost, name='delete_post'),
+    path('create_business/<int:pk>/', views.createBusiness, name='create_business')
     #path('post/<int:pk>/', views.detailView,name="post-detail"),
 ]

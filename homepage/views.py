@@ -86,3 +86,24 @@ def deletePost(request, pk):
     return render(request, 'hoods/delete.html', {'obj':post})
 
 
+@login_required(login_url='login')
+def createBusiness(request, pk):
+    hood = Post.objects.get(id=pk)
+    form = BusinessForm()
+    user = request.user
+
+    if request.method == 'POST':
+        business = Business.objects.create (
+            owner = user,
+            neighborhood = hood,
+            name = request.POST.get('name'),
+            email= request.POST.get('email'),
+            phone = request.POST.get('phone'),
+
+        )
+        return redirect('hood', pk=hood.id)     
+    context = {
+        'form':form,
+        'hood': hood
+    }
+    return render(request, 'hoods/create_business.html', context)
