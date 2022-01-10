@@ -39,6 +39,7 @@
                     <small class="white-important d-flex full-width flex-row-reverse">
                       {{ post.date_posted | date:"H:i l, d.m.y" }}
                     </small>
+                  
                   </a>
                 </div>
             </article>
@@ -53,7 +54,7 @@
         <div class="container" style="margin-top: 3rem;">
           <div class="row row-cols-2">
             <div class="col">
-              
+            
              
             </div>
             <div class="col"></div>
@@ -67,14 +68,17 @@
               <img src="https://media.istockphoto.com/photos/modern-hospital-building-picture-id1312706504?b=1&k=20&m=1312706504&s=170667a&w=0&h=IcYI9Pm-s-JyeCOgul1DfSQAqY3hVte4uXnStOXbkaw=" width="150" height="150">
               <p>Hospital</p>
               {{post.hospital_contact}}
+              {% for business in context %} 
+              {{business.name}}
+              {% endfor %}
             </div>
           </div>
         </div>
       </div>
       <div class="col">
-        <a style="margin-left: 0rem;" href="{% url 'blog:add_blogs' %}" class="btn btn-primary" role="button">Add blogs</a>
-        <a style="margin-left: 6rem;" href="{% url 'blog:blogs' %}" class="btn btn-primary" role="button">View blogs</a>
-        <a style="float: right;"  href="{% url 'homepage:create_business' post.id %}"  class="btn btn-primary" role="button">Add bussiness</button></a>
+        <a style="margin-left: 0rem;" href="{% url 'blog:add_blogs' %}" class="btn btn-primary" role="button">Add Business</a>
+        <a style="margin-left: 6rem;" href="{% url 'blog:blogs' %}" class="btn btn-primary" role="button">View Business</a>
+        
       </div>
       <div class="col"></div>
     </div>
