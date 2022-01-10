@@ -73,8 +73,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -200,14 +198,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #just an example, dont share your .env settings
 
-SECRET_KEY='342s(s(!hsjd998sde8$=o4$3m!(o+kce2^97kp6#ujhi'
-DEBUG=False #set to false in production
-DB_NAME='instagram'
-DB_USER='patrick'
-DB_PASSWORD='flower2'
-DB_HOST='127.0.0.1'
-MODE='dev' #set to 'prod' in production
-ALLOWED_HOSTS='.localhost','.herokuapp.com','.127.0.0.1'
-DISABLE_COLLECTSTATIC=1
+
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
