@@ -37,4 +37,17 @@ class Post(models.Model):
     @property
     def number_of_comments(self):
         return Comment.objects.filter(post=self).count()
-    
+
+class Business(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=150)
+    neighborhood = models.ForeignKey(Post, on_delete=models.CASCADE)
+    email = models.EmailField(unique=True)
+    created = models.DateTimeField(auto_now_add=True)
+    phone = models.IntegerField()
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return self.name 
