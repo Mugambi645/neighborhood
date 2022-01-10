@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
 from blog.models import BlogPost,Comment
@@ -58,4 +58,31 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'hoods/hood.html'
     context_object_name = 'post'
-    
+
+def joinHood(request,pk):
+    hood =  Post.objects.get(id=pk)
+    hood.occupants.add(request.user)
+    occupants = hood.occupants.all()
+
+    context = {
+       'hood':hood,
+       'occupants':occupants 
+    }
+    return render(request, 'hoods/hood.html', context)
+
+@login_required(login_url='login')
+def deletePost(request, pk):
+    post = BlogPost.objects.get(id=pk)
+
+    if request.user != post.author:
+        return HttpResponse('You are not allowed')
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('homepage:index')
+    context = {
+
+    }
+    return render(request, 'hoods/delete.html', {'obj':post})
+
+

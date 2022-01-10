@@ -24,6 +24,7 @@ class Post(models.Model):
     description = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    occupants = models.ManyToManyField(User, related_name='occupants', blank=True)
 
 
     def __str__(self):

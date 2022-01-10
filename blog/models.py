@@ -7,6 +7,7 @@ class BlogPost(models.Model):
     title=models.CharField(max_length=255)
     author= models.ForeignKey(User, on_delete=models.CASCADE)
     slug=models.CharField(max_length=130)
+   
     content=models.TextField()
     image = models.ImageField(upload_to="blog_pics", blank=True, null=True)
     dateTime=models.DateTimeField(auto_now_add=True)

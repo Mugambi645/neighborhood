@@ -6,5 +6,7 @@ urlpatterns = [
     path("",views.index, name="index"),
     path('post/new/', PostCreateView.as_view(), name='new_post'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('join_hood/<int:pk>/', views.joinHood, name='join_hood'),
+    path('delete_post/<int:pk>/', views.deletePost, name='delete_post'),
     #path('post/<int:pk>/', views.detailView,name="post-detail"),
 ]

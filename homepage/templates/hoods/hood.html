@@ -9,7 +9,7 @@
       <div class="col">
         <div class="container">
             <h3 class="white-important mb-3">
-              My Neighborhood
+            Hood: {{post.location}}
             </h3>
             <article class="media content-section">
               <div style="width: 100%; word-break: break-all;" class="hovered-tweet-comment">
@@ -33,7 +33,7 @@
                       <center>{{ post.description }}</center>
                     </p>
                     <br>
-                    <center><button type="button" class="btn btn-danger">Leave neighbourhood</button></center>
+                  
                     <br>
                     
                     <small class="white-important d-flex full-width flex-row-reverse">
@@ -47,15 +47,16 @@
           
          
       </div>
-      <div class="col">
-         column
+      <div class="col" style="margin-top: 6rem;">
+        <button type="button" class="btn btn-primary">Join neighbourhood</button>
+        <button type="button" class="btn btn-danger">Leave neighbourhood</button>
       </div>
       <div class="col">
         <a style="margin-left: 0rem;" href="{% url 'blog:add_blogs' %}" class="btn btn-primary" role="button">Add blogs</a>
         <a style="margin-left: 6rem;" href="{% url 'blog:blogs' %}" class="btn btn-primary" role="button">View blogs</a>
         <button style="float: right;" type="button" class="btn btn-primary">Add bussiness</button>
       </div>
-      <div class="col">Column</div>
+      <div class="col"></div>
     </div>
   </div>
 

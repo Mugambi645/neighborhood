@@ -4,24 +4,89 @@
     {% include "home/navbar.html" %}
 </div>
 <body style="background-color: wheat !important;">
-    <div class="row">
-        <div class="col-6">
-           
-                    {% for post in posts %}
-                   
-                        <div class="card shadow" style="width: 20rem; height: 33rem;">
-                            <img src="/media/{{post.image}}" class="card-img-top" alt="..." height="250px">
-                            <div class="card-body">
-                              <h5 class="card-title">{{post.title}} <br><small>by {{post.author}}</small></h5>
-                              <p class="card-text">{{post.content| truncatechars:210}}</p>
-                              <a href="{% url 'blog:blog_comments' post.slug %}" class="btn btn-primary">Read More {% if user.is_superuser %}<a href="delete_blog_post/{{post.slug}}/" class="btn btn-danger mx-4">Delete Blog</a>{% endif %}</a>
-                            </div>
-                        
-                    </div>
-                    {% endfor %}
-              
-            
-        <div class="col-6">.col-6</div>
+
+
+
+  <div class="container-fluid mt-5">
+    <div class="px-lg-5">
+      <div class="row">
+        <!-- Gallery item -->
+        {%for post in posts%}
+        <div class="col-xl-4 col-lg-3 col-md-4 mb-4">
+          
+          <div class="bg-white rounded shadow-sm">
+    
+            <a href="/project/{{project.id}}">
+              <img
+                src="/media/{{post.image}}"
+                alt=""
+                class="img-fluid card-img-top"
+              />
+            </a>
+            <div class="p-4">
+              <h5><a href="#" class="text-dark"> {{ post.title }}<br> 
+             
+              </p></a></h5>
+              <p class="small text-muted mb-0">
+                {{post.content| truncatechars:210}}
+              </p>
+
+              <div class="container">
+                <div class="row row-cols-2">
+                  <div class="col"> <a href="{% url 'blog:blog_comments' post.slug %}" class="btn btn-primary">Read More </a><br></div>
+                  <div class="col">
+                    <a href="{% url 'homepage:delete_post' post.id %}" class="btn btn-danger">Delete Blog</a></a>
+                  </div>
+                  <div class="col"></div>
+                  <div class="col"></div>
+                </div>
+              </div>
+
+
+
+               </a></p><br>
+             
+                 <small style="opacity: 0.8; " >
+                  Added on: {{ post.dateTime | date:"H:i l, d.m.y" }} 
+                  <hr>by {{post.author}}
+               </small>
+              <div
+                class="
+                  d-flex
+                  align-items-center
+                  justify-content-between
+                  rounded-pill
+                  px-3
+                  py-2
+                  mt-4
+                "
+              >
+                <p class="small mb-0">
+                
+                  <span class="font-weight-bold"></span>
+                </p>
+                <div
+                  class="badge badge-primary px-3 rounded-pill font-weight-normal"
+                ></div>
+                <div
+                  class="badge badge-success px-3 rounded-pill font-weight-normal"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+        <!-- End -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  
       </div>
     </div>
   </body>
