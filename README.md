@@ -41,7 +41,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 ## Future releases
 Further extend this web app tpo handle authentication using google and facebook and enable real time user following and unfollowing.
 # Live version
-- [Live version](https://proawardske.herokuapp.com/)
+- [Live version](/)
 
 ### Licence
 You can use this application for personal use only.
