@@ -25,7 +25,9 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     occupants = models.ManyToManyField(User, related_name='occupants', blank=True)
-    
+    fire_department = models.IntegerField(null=True)
+    hospital_contact = models.IntegerField(null=True)
+    security_department = models.IntegerField(null=True)
 
     def __str__(self):
         return self.title
