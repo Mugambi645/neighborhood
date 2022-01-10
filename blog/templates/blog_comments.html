@@ -16,7 +16,8 @@
                         <h5 class="mt-0"><a href="/user_profile/{{post.author.id}}/">{{post.author}}
                                     {% if user.is_authenticated %}
                                     {% if user.id == post.author.id %}
-                                    <small><a href="/edit_blog_post/{{post.slug}}/" class="edit btn btn-warning">Edit Blog Post</a></small>
+                                    <small style="margin-left: 1rem;"><a href="" class="edit btn btn-warning">Back to my hood</a></small><hr>
+                                    <small style="margin-left: 6.5rem;"><a href="/edit_blog_post/{{post.slug}}/" class="edit btn btn-warning">Edit Blog Post</a></small>
                                     {% endif %}
                                     {% endif %}
                               </a></h5>
@@ -47,24 +48,27 @@
                         <br>
                         <h2>All Comments ({{comments.count}})</h2>
                         <br>
-                        {% for comment in comments %}
-                        <div class="card">
-                              <div class="card-header">
-                                    <span style="font-size: 22px;">{{comment.user}} </span> <span
-                                    >
-                              </div>
-                              <div class="card-body">
-                                    <h6 class="card-text">{{comment.content}}</h6>
-                              </div>
-                        </div>
-                        <br>
-                        {% endfor %}
+                     
                   </div>
             </div>
       </div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
-      <div class="col">Column</div>
+      <div class="col" style="margin-top: 3rem;">  <center><p>Comments</p></center>
+            {% for comment in comments %}
+     
+        <div class="card" style="margin-left: 5rem;">
+           
+              <div class="card-header">
+                    <span style="font-size: 14px;">{{comment.user}} </span> <span
+                    >
+              </div>
+              <div class="card-body">
+                    <h6 class="card-text">{{comment.content}}</h6>
+              </div>
+        </div>
+        <br>
+        {% endfor %}</div>
+      <div class="col"></div>
+      <div class="col"></div>
     </div>
   </div>
 </body>
